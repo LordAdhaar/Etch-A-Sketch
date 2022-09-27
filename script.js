@@ -20,6 +20,7 @@ body.addEventListener("mouseup",de_activateColor);
 // function to activateColor and change mousedown to 1
 function activateColor(){
     mousedown=1;
+    this.classList.add("changeColor");
     console.log(mousedown);
 }
 
