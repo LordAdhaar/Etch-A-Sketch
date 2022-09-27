@@ -8,7 +8,7 @@ let mousedown = 0;
 for (let i= 0 ; i<(16*16); i++){
 
     const box = document.createElement("div");
-    box.setAttribute("style","height:25px; width:25px; border:1px solid grey");
+    box.setAttribute("style","height:31.25px; width:31.25px; border:1px solid grey");
     //console.log(box);
     box.classList.add("box");
     grid.appendChild(box);
@@ -41,23 +41,10 @@ function changeColor(event){
 // node list of all the boxes
 const boxes = document.querySelectorAll(".box");
 
-// apply mousedown to all boxes
+// apply mousedown, up, over and click to all boxes
 for (const box of boxes){
     box.addEventListener("mousedown",activateColor);
-}
-
-//apply mouse up to deactivate the changecolor
-for(const box of boxes){
+    box.addEventListener("mouseover",changeColor)
     box.addEventListener("mouseup",de_activateColor);
-}
-
-// to change color when box clicked
-for(const box of boxes){
     box.addEventListener("click", (event) => {event.target.classList.add("changeColor")})
 }
-
-// event listener which changes bgcolor if mousedown === 1 ;
-for(const box of boxes){
-    box.addEventListener("mouseover",changeColor)
-}
-
