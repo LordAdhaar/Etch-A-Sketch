@@ -1,0 +1,18 @@
+body{
+    margin: 0px;
+    min-height: 100vh;
+    display: flex;
+}
+
+.grid{
+    height: 432px;
+    width: 432px;
+    border: 2px solid blue;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+.changeColor{
+    background: black;
+}
