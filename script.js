@@ -8,7 +8,7 @@ let mousedown = 0;
 for (let i= 0 ; i<(16*16); i++){
 
     const box = document.createElement("div");
-    box.setAttribute("style","height:25px; width:25px; border:1px solid black");
+    box.setAttribute("style","height:25px; width:25px; border:1px solid grey");
     //console.log(box);
     box.classList.add("box");
     grid.appendChild(box);
