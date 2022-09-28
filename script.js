@@ -2,6 +2,12 @@
 const grid = document.querySelector(".grid");
 const body = document.querySelector("body")
 let isEraser=0;
+let colorInput = document.querySelector("#color");
+let chosenColor = "black";
+console.log(colorInput);
+
+colorInput.addEventListener("input",()=>{chosenColor = `${colorInput.value}`;
+console.log(chosenColor, typeof chosenColor)});
 
 body.addEventListener("mouseup",de_activateColor);
 
@@ -30,7 +36,7 @@ function activateColor(){
         this.style.background="white";
     }
     else{
-        this.style.background="black";
+        this.style.background=chosenColor;
     }
 }
 
@@ -46,7 +52,7 @@ function changeColor(event){
             this.style.background="white";
         }
         else{
-            this.style.background="black";
+            this.style.background=chosenColor;
         }
     }
     return;

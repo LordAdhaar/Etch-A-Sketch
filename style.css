@@ -25,6 +25,14 @@ p{
     margin-right:123px;
 }
 
+.side{
+    display: flex;
+    flex-direction: column;
+    gap: 43px;
+    justify-content: center;
+    align-items: center;
+}
+
 .options{
     display: flex;
     flex-direction: column;
