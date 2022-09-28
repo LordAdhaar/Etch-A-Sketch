@@ -17,14 +17,14 @@ for (let i= 0 ; i<(16*16); i++){
     box.addEventListener("mousedown",activateColor);
     box.addEventListener("mouseover",changeColor)
     box.addEventListener("mouseup",de_activateColor);
-    box.addEventListener("click", (event) => {event.target.classList.add("changeColor")})
+    box.addEventListener("click", (event) => {event.target.style.background="black"})
 
 }
 
 // activateColor, mousedown to 1
 function activateColor(){
     mousedown=1;
-    this.classList.add("changeColor");
+    this.style.background="black";
     console.log(mousedown);
 }
 
@@ -37,7 +37,7 @@ function de_activateColor(){
 //add changecolor class box
 function changeColor(event){
     if (mousedown){
-        this.classList.add("changeColor");
+        this.style.background="black";
     }
     return;
 }
@@ -91,7 +91,7 @@ function createGrid(){
         box.addEventListener("mousedown",activateColor);
         box.addEventListener("mouseover",changeColor)
         box.addEventListener("mouseup",de_activateColor);
-        box.addEventListener("click", (event) => {event.target.classList.add("changeColor")});
+        box.addEventListener("click", (event) => {event.target.style.background="black"});
     
     }
 
@@ -105,4 +105,15 @@ for(const button of selectGridButtons){
     button.addEventListener("click",createGrid);
 }
 
+
+function clear(){
+
+    const boxes = document.querySelectorAll(".box");
+    for(const box of boxes){
+        box.style.background="white";
+    }
+}
+
+const clearButton = document.querySelector("button.clear");
+clearButton.addEventListener("click",clear);
 
