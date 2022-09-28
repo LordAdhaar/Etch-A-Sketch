@@ -4,14 +4,49 @@ const body = document.querySelector("body")
 let isEraser=0;
 let colorInput = document.querySelector("#color");
 let chosenColor = "black";
-console.log(colorInput);
+let mousedown = 0;
+let isRainbow = 0;
 
+let randomColor;
+// Math.floor(Math.random()*16777215).toString(16)
+
+const rainbowButton = document.querySelector("button.rainbow");
+rainbowButton.addEventListener("click",setIsRainbow);
+rainbowButton.addEventListener("click",toggleRainbow);
+
+function setIsRainbow(){
+
+    if(isRainbow){
+        isRainbow=0;
+    }
+    else{
+        isRainbow=1;
+    }
+    console.log(isRainbow);
+
+}
+
+function toggleRainbow(){
+
+    if(isRainbow){
+        this.style.background="white";
+        this.style.color = "#2c8aff";
+    }
+    else{
+        this.style.background="#2c8aff";
+        this.style.color="white";
+    }
+}
+
+
+
+// take input from palette and assign value to the chosenColor
 colorInput.addEventListener("input",()=>{chosenColor = `${colorInput.value}`;
 console.log(chosenColor, typeof chosenColor)});
 
+//mousedown === 0 when mouse lifted up in the body 
 body.addEventListener("mouseup",de_activateColor);
 
-let mousedown = 0;
 
 //create initial 16x16 grid.
 for (let i= 0 ; i<(16*16); i++){
@@ -35,6 +70,10 @@ function activateColor(){
     if (isEraser){
         this.style.background="white";
     }
+    else if(isRainbow){
+        chosenColor = `#${Math.floor(Math.random()*16777215).toString(16)}`;
+        this.style.background = chosenColor;
+    }
     else{
         this.style.background=chosenColor;
     }
@@ -50,6 +89,10 @@ function changeColor(event){
     if (mousedown){
         if(isEraser){
             this.style.background="white";
+        }
+        else if(isRainbow){
+            chosenColor = `#${Math.floor(Math.random()*16777215).toString(16)}`;
+            this.style.background = chosenColor;
         }
         else{
             this.style.background=chosenColor;
@@ -135,11 +178,11 @@ function clear(){
 
 //add eraser
 const eraserButton = document.querySelector("button.eraser");
-eraserButton.addEventListener("click",erase);
-eraserButton.addEventListener("click",togglerColors);
+eraserButton.addEventListener("click",setIsEraser);
+eraserButton.addEventListener("click",toggleEraser);
 
 // toggle eraser
-function erase(){
+function setIsEraser(){
 
     if(isEraser){
         isEraser=0;
@@ -151,7 +194,8 @@ function erase(){
 
 }
 
-function togglerColors(){
+// change bgcolor and font color of eraser button
+function toggleEraser(){
 
     if(isEraser){
         this.style.background="white";
