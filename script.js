@@ -1,6 +1,8 @@
 //select the grid and the body
 const grid = document.querySelector(".grid");
 const body = document.querySelector("body")
+let isEraser=0;
+
 body.addEventListener("mouseup",de_activateColor);
 
 let mousedown = 0;
@@ -17,27 +19,35 @@ for (let i= 0 ; i<(16*16); i++){
     box.addEventListener("mousedown",activateColor);
     box.addEventListener("mouseover",changeColor)
     box.addEventListener("mouseup",de_activateColor);
-    box.addEventListener("click", (event) => {event.target.style.background="black"})
 
 }
 
 // activateColor, mousedown to 1
 function activateColor(){
     mousedown=1;
-    this.style.background="black";
-    console.log(mousedown);
+    console.log(isEraser);
+    if (isEraser){
+        this.style.background="white";
+    }
+    else{
+        this.style.background="black";
+    }
 }
 
 // deactivate color, change mousedown to 0
 function de_activateColor(){
     mousedown=0;
-    console.log(mousedown);
 }
 
 //add changecolor class box
 function changeColor(event){
     if (mousedown){
-        this.style.background="black";
+        if(isEraser){
+            this.style.background="white";
+        }
+        else{
+            this.style.background="black";
+        }
     }
     return;
 }
@@ -91,8 +101,6 @@ function createGrid(){
         box.addEventListener("mousedown",activateColor);
         box.addEventListener("mouseover",changeColor)
         box.addEventListener("mouseup",de_activateColor);
-        box.addEventListener("click", (event) => {event.target.style.background="black"});
-    
     }
 
 }
@@ -105,7 +113,11 @@ for(const button of selectGridButtons){
     button.addEventListener("click",createGrid);
 }
 
+// add clear button
+const clearButton = document.querySelector("button.clear");
+clearButton.addEventListener("click",clear);
 
+// change bgcolor to white
 function clear(){
 
     const boxes = document.querySelectorAll(".box");
@@ -114,6 +126,33 @@ function clear(){
     }
 }
 
-const clearButton = document.querySelector("button.clear");
-clearButton.addEventListener("click",clear);
 
+//add eraser
+const eraserButton = document.querySelector("button.eraser");
+eraserButton.addEventListener("click",erase);
+eraserButton.addEventListener("click",togglerColors);
+
+// toggle eraser
+function erase(){
+
+    if(isEraser){
+        isEraser=0;
+    }
+    else{
+        isEraser=1;
+    }
+    console.log(isEraser);
+
+}
+
+function togglerColors(){
+
+    if(isEraser){
+        this.style.background="white";
+        this.style.color = "#2c8aff";
+    }
+    else{
+        this.style.background="#2c8aff";
+        this.style.color="white";
+    }
+}
