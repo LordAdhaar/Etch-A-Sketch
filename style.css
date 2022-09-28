@@ -19,6 +19,26 @@ p{
     margin: 0px;
 }
 
+.main{
+    display: flex;
+    gap: 50px;
+    margin-right:123px;
+}
+
+.options{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+}
+
+.options button {
+
+    font-size:18px;
+    box-shadow: 3px 3px black;
+    color: white;
+    background: #2c8aff;
+}
 .grid{
     height: 500px;
     width: 500px;
@@ -37,6 +57,9 @@ p{
 
 .gridSize button{
     font-size: 21px;
+    box-shadow: 3px 3px black;
+    color: white;
+    background: #2c8aff;
 }
 
 
