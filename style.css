@@ -68,13 +68,14 @@ p{
     display: flex;
     flex-wrap: wrap;
     margin: auto;
-    box-shadow: 0px 0px 0px 19px #00ffb894;
+    border: 10px solid #00ffb894;
     margin: 0px;
 }
 
 .gridSize{
     display: flex;
     gap: 22px;
+    margin-bottom: 10px;
 }
 
 .gridSize button{
