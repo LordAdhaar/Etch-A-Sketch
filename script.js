@@ -2,7 +2,6 @@
 const grid = document.querySelector(".grid");
 const body = document.querySelector("body")
 let isEraser=0;
-let colorInput = document.querySelector("#color");
 let chosenColor = "black";
 let mousedown = 0;
 let isRainbow = 0;
@@ -41,6 +40,7 @@ function toggleRainbow(){
 
 
 // take input from palette and assign value to the chosenColor
+let colorInput = document.querySelector("#color");
 colorInput.addEventListener("input",()=>{chosenColor = `${colorInput.value}`;
 console.log(chosenColor, typeof chosenColor)});
 
@@ -52,7 +52,7 @@ body.addEventListener("mouseup",de_activateColor);
 for (let i= 0 ; i<(16*16); i++){
 
     const box = document.createElement("div");
-    box.setAttribute("style","height:31.25px; width:31.25px; border:1px solid black");
+    box.setAttribute("style","height:31.25px; width:31.25px");
     //console.log(box);
     box.classList.add("box");
     grid.appendChild(box);
@@ -140,7 +140,6 @@ function createGrid(){
 
 
         const box = document.createElement("div");
-        box.style.border = "1px solid black";
         box.style.height = `${boxDim}px`;
         box.style.width = `${boxDim}px`;
         box.classList.add("box");

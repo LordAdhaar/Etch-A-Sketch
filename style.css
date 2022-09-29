@@ -6,6 +6,7 @@ body{
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    font-family: 'Roboto', sans-serif;
 }
 
 p{
@@ -22,15 +23,26 @@ p{
 .main{
     display: flex;
     gap: 50px;
-    margin-right:123px;
+    margin-right:181px;
 }
 
 .side{
     display: flex;
     flex-direction: column;
-    gap: 43px;
+    gap: 30px;
     justify-content: center;
     align-items: center;
+}
+
+.side h3{
+    margin: 0px;
+    font-size: 25px;
+    width: 100px;
+    text-align: center;
+    color: #ff5200;
+    text-shadow: 1px 1px black;
+    font-family: 'Roboto', sans-serif;
+
 }
 
 .options{
@@ -47,12 +59,12 @@ p{
     color: white;
     background: #2c8aff;
     font-weight: bold;
+    width: 130px;
 
 }
 .grid{
     height: 500px;
     width: 500px;
-    border: 1px solid black;
     display: flex;
     flex-wrap: wrap;
     margin: auto;
@@ -71,6 +83,8 @@ p{
     color: white;
     background: #2c8aff;
     font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+
 }
 
 
