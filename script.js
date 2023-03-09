@@ -52,9 +52,15 @@ body.addEventListener("mouseup",de_activateColor);
 for (let i= 0 ; i<(16*16); i++){
 
     const box = document.createElement("div");
-    box.setAttribute("style","height:31.25px; width:31.25px");
-    //console.log(box);
     box.classList.add("box");
+
+    if(grid.clientHeight===500){
+        box.setAttribute("style","height:31.25px; width:31.25px");
+    }
+    else{
+        box.setAttribute("style","height:20px; width:20px");
+    }
+    //console.log(box);
     grid.appendChild(box);
 
     box.addEventListener("mousedown",activateColor);
@@ -102,7 +108,7 @@ function changeColor(event){
 }
 
 function getBoxDimension(numBoxes){
-    return ((500*500)/(numBoxes))**(1/2);
+    return ((grid.clientHeight*grid.clientHeight)/(numBoxes))**(1/2);
 }
 
 

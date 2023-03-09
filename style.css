@@ -100,3 +100,53 @@ p{
 .clear{
     background:white;
 }
+
+@media (max-width:1000px){
+
+    .heading{
+        font-size: 100px;
+    }
+
+    .main{
+        margin: 0px;
+        align-items: center;
+        flex-direction: column;
+    }
+    .side, .options{
+        flex-direction: row;
+    }
+    .side h3{
+        display: none;
+    }
+}
+
+@media (max-width:600px){
+    body{
+        justify-content: center;
+        gap: 50px;
+    }
+    .heading{
+        font-size: 60px;
+        text-shadow: 3px 3px black;
+    }
+    .grid{
+        height: 320px;
+        width: 320px;
+    }
+    .side{
+        flex-direction: row;
+    }
+    .options{
+        gap: 10px;
+    }
+    .options button{
+        font-size: 13px;
+        width: 80px;
+    }
+    .gridSize button{
+        font-size: 15px;
+    }
+    .box{
+        
+    }
+}
